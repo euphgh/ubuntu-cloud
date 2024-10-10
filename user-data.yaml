@@ -1,11 +1,16 @@
 #cloud-config
 users:
-- name: euphgh
-  gecos: Ubuntu User
+- name: ubuntu
+  gecos: default user with no pass sudo
   sudo: ALL=(ALL) NOPASSWD:ALL
   shell: /bin/bash
   lock_passwd: false
-  plain_text_passwd: nixos
+  plain_text_passwd: admin
+  ssh_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPVWQfblaorj5/4blfnDTFNl/fY5Xp8vBHDdSZriWZ2Q
+
+ssh_authorized_keys:
+ssh_pwauth: false
 
 locale: en_US.UTF-8
 
@@ -13,4 +18,4 @@ timezone: UTC
 
 manage_etc_hosts: true
 
-hostname: cloud-ubuntu
+hostname: cloud-img
