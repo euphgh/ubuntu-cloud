@@ -8,6 +8,7 @@ users:
   plain_text_passwd: admin
   ssh_authorized_keys:
   - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPVWQfblaorj5/4blfnDTFNl/fY5Xp8vBHDdSZriWZ2Q
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFu2AAQG4lar0OvV89TPT4G4J5rfh6DWKxkRj5Tf4pL1
 
 ssh_authorized_keys:
 ssh_pwauth: false

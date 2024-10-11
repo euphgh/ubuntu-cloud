@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+import socket
+import random
+
+def port_avaliable(port, host='127.0.0.1'):
+    res = True
+    try:
+        # 创建TCP套接字
+        tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # 尝试绑定端口
+        tcp_socket.bind((host, port))
+        # 监听端口
+        tcp_socket.listen(1)
+    except socket.error as e:
+        res = False
+    finally:
+        tcp_socket.close()
+    return res
+
+low  = 20130
+high = 20200
+
+# 创建一个有序列表
+port_list = list(range(low, high))
+# 复制列表
+shuffled_port = port_list.copy()
+
+# 打乱复制的列表中的元素顺序
+random.shuffle(shuffled_port)
+
+
+for i in shuffled_port:
+    if port_avaliable(i):
+        print(i)
+        exit(0)
+
+exit(1)

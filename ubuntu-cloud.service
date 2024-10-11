@@ -1,0 +1,16 @@
+[Unit]
+Description=Ubuntu cloud image in KVM
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5s
+LimitNOFILE=1048576
+
+ExecStart=%h/.local/etc/ubuntu-cloud/start.sh
+StandardOutput=file:%h/.local/etc/ubuntu-cloud/stdout.log
+StandardError=file:%h/.local/etc/ubuntu-cloud/stderr.log
+
+[Install]
+WantedBy=multi-user.target
